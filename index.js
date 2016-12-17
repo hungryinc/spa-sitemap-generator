@@ -9,6 +9,7 @@ var cheerio = require('cheerio');
 var xmlbuilder = require('xmlbuilder');
 var assign = require('lodash.assign');
 var forIn = require('lodash.forin');
+var argv = require('yargs').argv;
 var initialBaseUrl;
 /**
  * Builds an URL string from a parsed URL Object.
@@ -25,7 +26,7 @@ function stringifyUrl(parsedUrl) {
  * @param  {String} uri       URL to parse
  * @param  {Object} options   various options
  */
-function SitemapGenerator(uri, options) {
+function SitemapGenerator(options) {
   var self = this;
 
   // defaults
@@ -43,11 +44,14 @@ function SitemapGenerator(uri, options) {
   var extRegex = new RegExp('\.(' + exts + ')', 'i');
 
   // throw error if no baseUrl is provided
-  if (!uri) {
-    throw new TypeError('First parameter \'uri\' is required!');
+  if ( ! argv.uri) {
+    process.stdout.write("You must provide the --uri flag");
+    process.exit();
   }
 
-  this.initialUrl = initialBaseUrl = uri;
+  var uri = argv.uri;
+
+  this.initialUrl = initialBaseUrl = argv.uri;
 
   // set default status
   this.status = 'idle';

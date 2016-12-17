@@ -13,8 +13,8 @@
     "lodash.assign": "^4.0.9",
     "lodash.forin": "^4.2.0",
     "robots": "^0.9.4",
-    "simplecrawler": "1.0.3",
     "simplecrawler": "^1.0.3",
-    "xmlbuilder": "^8.2.2"
+    "xmlbuilder": "^8.2.2",
+    "yargs": "^6.5.0"
   }
 }
