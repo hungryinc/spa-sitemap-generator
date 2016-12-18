@@ -76,7 +76,7 @@ function SitemapGenerator(options) {
   this.baseUrl = url.parse(baseUrl);
 
   // create Crawler
-  this.crawler = new Crawler((options.escapedFragment) ? this.baseUrl.href + "?_escaped_fragment_" : this.baseUrl.href);
+  this.crawler = new Crawler((this.options.escapedFragment) ? this.baseUrl.href + "?_escaped_fragment_" : this.baseUrl.href);
 
   // set initial path to subpage if provided
   var initialPath = '/';
